@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Toque Ativo</h1>
+    <p>Aromaterapia na prática para transformar sua rotina</p>
+    <a href="#posts" class="cta-button">Explorar Artigos</a>
+  </div>
+</div>
+
+<section id="posts" class="posts-section">
+  <h2 class="section-title">Últimos Artigos</h2>
+  <div class="posts-grid">
+    {% for post in site.posts limit: 6 %}
+      <article class="post-card">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-image">
+        {% else %}
+          <img src="{{ '/assets/img/placeholder.jpg' | relative_url }}" alt="Imagem padrão" class="post-image">
+        {% endif %}
+        <div class="post-content">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          <div class="post-meta">
+            <span class="author">{{ post.author }}</span>
+            <span class="date">{{ post.date | date: "%d/%m/%Y" }}</span>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-content">
+    <h2>Transforme sua relação com a aromaterapia</h2>
+    <p>Aprenda a usar óleos essenciais de forma prática e segura em nosso curso exclusivo</p>
+    <a href="#" class="cta-button">Quero me inscrever</a>
+  </div>
+</section>

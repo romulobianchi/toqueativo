@@ -1,0 +1,34 @@
+title: Toque Ativo
+description: "Aromaterapia na prática - Conecte-se com o poder dos óleos essenciais"
+baseurl: ""
+url: "https://romulobianchi.github.io/toqueativo"
+github_username: romulobianchi
+
+# Configuração do Netlify CMS
+backend:
+  name: git-gateway
+  branch: main
+  repo: romulobianchi/toqueativo
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Imagem", name: "image", widget: "image" }
+      - { label: "Autor", name: "author", widget: "string" }
+      - { label: "Resumo", name: "excerpt", widget: "text" }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
